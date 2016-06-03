@@ -29,7 +29,7 @@ Door = ->
             wpi.wiringPiISRCancel 1 if error
             stop()
             callback?(error)
-        setTimeout onEnd.bind(this, yes), 5000
+        setTimeout onEnd.bind(this, yes), 7000
         wpi.wiringPiISR 1, wpi.INT_EDGE_FALLING, onEnd.bind(this, no)
     halfClose = (callback) ->
         startClosing()
