@@ -26,7 +26,7 @@ Door = ->
         onEnd = (error) ->
             return if end
             end = yes
-            wpi.wiringPiISRCancel 1
+            wpi.wiringPiISRCancel 1 if error
             stop()
             callback?(error)
         setTimeout onEnd.bind(this, yes), 5000
@@ -65,3 +65,5 @@ socket.on 'open', ->
 
 door.open (err) ->
     console.log "open, error : ", err
+    door.close (err) ->
+    	console.log "close, error : ", err
