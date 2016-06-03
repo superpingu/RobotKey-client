@@ -15,6 +15,7 @@ install:
 	cp robotkey /etc/init.d/robotkey
 	chmod 755 /etc/init.d/robotkey
 	update-rc.d robotkey defaults
+	cd /var/apps/RobotKey/; npm install
 	@echo "reboot to start the service"
 
 

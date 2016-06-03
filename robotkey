@@ -15,10 +15,10 @@
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
-    /usr/local/bin/forever start /var/apps/RobotKey/app.js
+    /usr/local/bin/forever start /var/apps/RobotKey/lib/app.js
     ;;
   stop)
-    /usr/local/bin/forever stop /var/apps/RobotKey/app.js
+    /usr/local/bin/forever stop /var/apps/RobotKey/lib/app.js
     ;;
   *)
     echo "Usage: /etc/init.d/robotkey {start|stop}"
