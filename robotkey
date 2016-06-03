@@ -1,0 +1,27 @@
+#! /bin/sh
+# /etc/init.d/robotkey
+#
+
+### BEGIN INIT INFO
+# Provides:          robotkey
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts RobotKey client daemon
+# Description:       This service starts RobotKey controlling the door motor
+### END INIT INFO
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    /usr/local/bin/forever start /var/apps/RobotKey/app.js
+    ;;
+  stop)
+    /usr/local/bin/forever stop /var/apps/RobotKey/app.js
+    ;;
+  *)
+    echo "Usage: /etc/init.d/robotkey {start|stop}"
+    exit 1
+    ;;
+esac

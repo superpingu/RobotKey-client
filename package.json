@@ -1,0 +1,22 @@
+{
+  "name": "robotkey-client",
+  "version": "0.1.0",
+  "description": "electronic key controlling the door",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superpingu/RobotKey-client.git"
+  },
+  "author": "superpingu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superpingu/RobotKey-client/issues"
+  },
+  "homepage": "https://github.com/superpingu/RobotKey-client#readme",
+  "dependencies": {
+    "socket.io-client": "^1.4.6"
+  }
+}
