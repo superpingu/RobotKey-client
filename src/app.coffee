@@ -11,7 +11,7 @@ wpi.pullUpDnControl 1, wpi.PUD_UP
 wpi.pinMode 4, wpi.OUTPUT
 wpi.pinMode 5, wpi.OUTPUT
 
-door = ->
+Door = ->
     startClosing = ->
         wpi.digitalWrite(5, wpi.LOW)
         wpi.digitalWrite(4, wpi.HIGH)
@@ -22,8 +22,11 @@ door = ->
         wpi.digitalWrite(4, wpi.LOW)
         wpi.digitalWrite(5, wpi.LOW)
     detectEnd = (callback) ->
+        end = no
         onEnd = (error) ->
-            wiringPiISRCancel 1
+            return if end
+            end = yes
+            wpi.wiringPiISRCancel 1
             stop()
             callback?(error)
         setTimeout onEnd.bind(this, yes), 5000
@@ -44,6 +47,7 @@ door = ->
                 callback?(err) if err
                 halfOpen(callback) unless err
     }
+door = Door()
 
 # server link
 socket = require('socket.io-client')('http://abonetti.fr:3005/')
@@ -58,3 +62,6 @@ socket.on 'close', ->
 socket.on 'open', ->
     door.open (err) ->
         socket.emit 'opened', err
+
+door.open (err) ->
+    console.log "open, error : ", err
