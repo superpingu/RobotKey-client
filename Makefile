@@ -19,4 +19,4 @@ install:
 	@echo "reboot to start the service"
 
 
-.PHONY: all watch clean test
+.PHONY: all watch clean install
