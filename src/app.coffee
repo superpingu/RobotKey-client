@@ -51,7 +51,7 @@ Door = ->
 door = Door()
 
 # server link
-socket = require('socket.io-client')('http://abonetti.fr:3005/')
+socket = require('socket.io-client')('http://bonetti.io:3005/')
 socket.on 'connect', ->
     console.log 'Connected to the server'
 socket.on 'disconnect', ->
